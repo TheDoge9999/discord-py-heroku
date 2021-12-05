@@ -252,4 +252,4 @@ async def on_message(message):
             await message.channel.send("add your @ after the command!")
             return
 
-client.run(TOKEN)
+bot.run(DISCORD_TOKEN)
