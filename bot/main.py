@@ -92,7 +92,7 @@ async def on_message(message):
 
         def end3():
             global messages
-            messages = [f"*puts the {names}*", f"*sets the {name} down*", f"*places the {name} down*"]
+            messages = [f"*puts the {name}*", f"*sets the {name} down*", f"*places the {name} down*"]
 
 
 
