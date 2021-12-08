@@ -23,6 +23,51 @@ async def on_message(message):
         channel = message.channel
         await channel.send("my other commands are:~punch, ~guess, ~customguess <number>, ~coolcheck <name>, ~annoy <name>")
         
+    if message.content.startswith('~textadd'):
+        f = open("the.txt", "a")
+
+        funkyname = f""
+
+        index = 0
+        name = ""
+        namecheck = message.content
+
+        #this grabs the name of the command if it's there
+
+
+        if len(namecheck) > 8:
+            index = 9
+            funkyname = f"{message.content}"
+            for i in range(len(funkyname) - 9):
+                name = name + funkyname[index]
+                index = index + 1
+
+            f.write(f"{name}~\n")
+            await message.channel.send("added")
+
+        else:
+            await message.channel.send("I need something after the command to write gjkahgkjalhgkjla")
+        f.close()
+
+    if message.content.startswith('~textrandom'):
+        channel = message.channel
+        f = open("the.txt", "r")
+        messages = []
+        for line in f:
+            index = 0
+            name = ''
+
+
+
+
+            while (line[index] != "~"):
+                name = name + line[index]
+                index = index + 1
+            messages.append(name)
+
+        listnumb = rand.randint(0, len(messages) - 1)
+        await channel.send(f"{messages[listnumb]}")
+        f.close()
         
     if message.content.startswith('~longhug'):
         channel = message.channel
