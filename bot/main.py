@@ -78,7 +78,7 @@ async def on_message(message):
         index = 0
         name = ""
         namesaid = False
-        slot = 0
+        slot = rand.randint(0,2)
         namecheck = message.content
 
         #this grabs the name of the command if it's there
