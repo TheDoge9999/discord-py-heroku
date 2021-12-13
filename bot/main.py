@@ -243,6 +243,11 @@ async def on_message(message):
         channel = message.channel
         punchers = ["plane.mp4", "ten.mp4", "balls.mp4", "sod.mp4", "hello (2).mp4", "anger.mov"]
         await channel.send(file=discord.File(punchers[rand.randint(0, 5)]))
+        
+    if message.content.startswith('~execute'):
+        channel = message.channel
+        punchers = ["https://cdn.discordapp.com/attachments/916843840093171782/919793002573082645/video0.mov", "https://cdn.discordapp.com/attachments/841131556756389918/919799360051617842/getfunnied1.mp4", "https://cdn.discordapp.com/attachments/841131556756389918/919799360487833620/Luigigun.mp4", "https://cdn.discordapp.com/attachments/841131556756389918/919799361326710834/shut_yo_stbrrrrrrrrrrrrrrrrrr.mp4", "https://cdn.discordapp.com/attachments/841131556756389918/919799362589188167/video03.mov", "https://cdn.discordapp.com/attachments/841131556756389918/919799362924724244/video05.mov", "https://cdn.discordapp.com/attachments/841131556756389918/919799363180589086/video06.mp4", "https://cdn.discordapp.com/attachments/841131556756389918/919799363511918592/video09.mp4", "https://cdn.discordapp.com/attachments/841131556756389918/919799363843264542/video1_2_1.mov", "https://cdn.discordapp.com/attachments/841131556756389918/919799472031141969/cat.mov"]
+        await channel.send(file=discord.File(punchers[rand.randint(0, 9)]))
 
     if message.content.startswith('depression'):
         channel = message.channel
