@@ -69,87 +69,87 @@ async def on_message(message):
         await channel.send(f"{messages[listnumb]}")
         f.close()
         
-        if message.content.startswith('~longhug'):
-            channel = message.channel
+    if message.content.startswith('~longhug'):
+        channel = message.channel
 
-            #starting variables
-            funkyname = f""
+        #starting variables
+        funkyname = f""
 
-            index = 0
-            name = ""
-            namesaid = False
-            slot = 0
-            namecheck = message.content
+        index = 0
+        name = ""
+        namesaid = False
+        slot = 0
+        namecheck = message.content
 
-            #this grabs the name of the command if it's there
-
-
-            if len(namecheck) > 8:
-                index = 9
-                funkyname = f"{message.content}"
-                for i in range(len(funkyname) - 9):
-                    name = name + funkyname[index]
-                    index = index + 1
-
-            #this grabs the user name without the number tag
-            else:
-                funkyname = f"{message.author}"
-                while (funkyname[index] != "#"):
-                    name = name + funkyname[index]
-                    index = index + 1
+        #this grabs the name of the command if it's there
 
 
+        if len(namecheck) > 8:
+            index = 9
+            funkyname = f"{message.content}"
+            for i in range(len(funkyname) - 9):
+                name = name + funkyname[index]
+                index = index + 1
+
+        #this grabs the user name without the number tag
+        else:
+            funkyname = f"{message.author}"
+            while (funkyname[index] != "#"):
+                name = name + funkyname[index]
+                index = index + 1
 
 
 
 
 
 
-            #the bot will start acting and talking
-
-            #uses the starting definitions, prehug haha no going back
-            await asyncio.sleep(1)
-            if (0 == rand.randint(0,1)):
-                namesaid = True
-                await channel.send(f'{name} :3')
 
 
+        #the bot will start acting and talking
 
-            messages = [f"*Holds the {name}*", f"*Picks up the {name}*", "*Picks up*"]
-
-            if (namesaid == True):
-                await asyncio.sleep(2)
-                await channel.send(f'{messages[2]}')
-            else:
-                await channel.send(f'{messages[rand.randint(0, 1)]}')
-                await asyncio.sleep(2)
-                await channel.send(":3")
-
-            #uses middle definitions, grab da boi
-            messages = ["*snuggles*", "*nuzzles*", "*gently hugs*", f"*nuzzles da {name}*", "*patpatpat*", "*scritchscratch*"]
-
-            await asyncio.sleep(1)
-            if (slot == 1):
-                await asyncio.sleep(rand.randint(1,3))
-                await channel.send(file=discord.File(messages[rand.randint(0, 2)]))
-            else:
-                await asyncio.sleep(rand.randint(2,4))
-                await channel.send(f'{messages[rand.randint(0,2)]}')
-
-            mid3()
-            for i in range(rand.randint(3, 5)):
-                await asyncio.sleep(rand.randint(5,12))
-                await channel.send(f'{messages[rand.randint(0,5)]}')
-            mid1()
-            await asyncio.sleep(4)
-            await channel.send(f'{messages[rand.randint(3,5)]}')
+        #uses the starting definitions, prehug haha no going back
+        await asyncio.sleep(1)
+        if (0 == rand.randint(0,1)):
+            namesaid = True
+            await channel.send(f'{name} :3')
 
 
-            #uses end definitions, lets the boi go
-            messages = [f"*puts the {name}*", f"*sets the {name} down*", f"*places the {name} down*"]
 
-            await asyncio.sleep(rand.randint(4,6))
+        messages = [f"*Holds the {name}*", f"*Picks up the {name}*", "*Picks up*"]
+
+        if (namesaid == True):
+            await asyncio.sleep(2)
+            await channel.send(f'{messages[2]}')
+        else:
+            await channel.send(f'{messages[rand.randint(0, 1)]}')
+            await asyncio.sleep(2)
+            await channel.send(":3")
+
+        #uses middle definitions, grab da boi
+        messages = ["*snuggles*", "*nuzzles*", "*gently hugs*", f"*nuzzles da {name}*", "*patpatpat*", "*scritchscratch*"]
+
+        await asyncio.sleep(1)
+        if (slot == 1):
+            await asyncio.sleep(rand.randint(1,3))
+            await channel.send(file=discord.File(messages[rand.randint(0, 2)]))
+        else:
+            await asyncio.sleep(rand.randint(2,4))
             await channel.send(f'{messages[rand.randint(0,2)]}')
+
+        mid3()
+        for i in range(rand.randint(3, 5)):
+            await asyncio.sleep(rand.randint(5,12))
+            await channel.send(f'{messages[rand.randint(0,5)]}')
+        mid1()
+        await asyncio.sleep(4)
+        await channel.send(f'{messages[rand.randint(3,5)]}')
+
+
+        #uses end definitions, lets the boi go
+        messages = [f"*puts the {name}*", f"*sets the {name} down*", f"*places the {name} down*"]
+
+        await asyncio.sleep(rand.randint(4,6))
+        await channel.send(f'{messages[rand.randint(0,2)]}')
 
     if message.content.startswith('~hug'):
         channel = message.channel
