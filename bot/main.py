@@ -405,7 +405,9 @@ async def on_message(message):
         namecheck = message.content
         funkyname = f""
         name = ""
-
+        if message.author.id == self.user.id:
+            await message.channel.send("*no*")
+            return
         if len(namecheck) > 6:
             index = 7
             funkyname = f"{message.content}"
