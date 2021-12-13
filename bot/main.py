@@ -69,7 +69,7 @@ async def on_message(message):
         await channel.send(f"{messages[listnumb]}")
         f.close()
         
-    if message.content.startswith('~longhug'):
+        if message.content.startswith('~longhug'):
         channel = message.channel
 
         #starting variables
@@ -102,45 +102,6 @@ async def on_message(message):
 
 
 
-        #defines a lot of lists that can be called for things that can be said
-        def start1():
-            global messages
-            messages = [f"*grabs the {name}*", f"*grabs {name}*", "*grabs*"]
-
-        def start2():
-            global messages
-            messages = [f"c'mere, {name}", f"The {name}", "you"]
-
-        def start3():
-            global messages
-            messages = [f"*Holds the {name}*", f"*Picks up the {name}*", "*Picks up*"]
-
-        def mid1():
-            global messages
-            messages = ["*squeeze*", "*huggggg*", "*holdddd*", "*squeeeeeze* >:3", "*tight snuggle* :3", "^w^"]
-
-        def mid2():
-            global messages
-            messages = ["hug1.png", "hug2.png", "hug3.gif"]
-
-        def mid3():
-            global messages
-            messages = ["*snuggles*", "*nuzzles*", "*gently hugs*", f"*nuzzles da {name}*", "*patpatpat*", "*scritchscratch*"]
-
-        def end1():
-            global messages
-            messages = ["*lets go*", f"*drops the {name}*", f"*releases the {name}*"]
-
-        def end2():
-            global messages
-            messages = ["*lets go*", f"*drops the {name}*", f"*releases the {name}*"]
-
-        def end3():
-            global messages
-            messages = [f"*puts the {name}*", f"*sets the {name} down*", f"*places the {name} down*"]
-
-
-
 
 
 
@@ -154,9 +115,7 @@ async def on_message(message):
 
 
 
-        start = [start1, start2, start3]
-        slot = 2
-        start[slot]()
+        messages = [f"*Holds the {name}*", f"*Picks up the {name}*", "*Picks up*"]
 
         if (namesaid == True):
             await asyncio.sleep(2)
@@ -167,8 +126,7 @@ async def on_message(message):
             await channel.send(":3")
 
         #uses middle definitions, grab da boi
-        mid = [mid1, mid2, mid3]
-        mid[slot]()
+        messages = ["*snuggles*", "*nuzzles*", "*gently hugs*", f"*nuzzles da {name}*", "*patpatpat*", "*scritchscratch*"]
 
         await asyncio.sleep(1)
         if (slot == 1):
@@ -188,12 +146,11 @@ async def on_message(message):
 
 
         #uses end definitions, lets the boi go
-        end = [end1, end2, end3]
-        end[slot]()
+        messages = [f"*puts the {name}*", f"*sets the {name} down*", f"*places the {name} down*"]
 
         await asyncio.sleep(rand.randint(4,6))
         await channel.send(f'{messages[rand.randint(0,2)]}')
-        
+
     if message.content.startswith('~hug'):
         channel = message.channel
 
@@ -227,46 +184,6 @@ async def on_message(message):
 
 
 
-        #defines a lot of lists that can be called for things that can be said
-        def start1():
-            global messages
-            messages = [f"*grabs the {name}*", f"*grabs {name}*", "*grabs*"]
-
-        def start2():
-            global messages
-            messages = [f"c'mere, {name}", f"The {name}", "you"]
-
-        def start3():
-            global messages
-            messages = [f"*Holds the {name}*", f"*Picks up the {name}*", "*Picks up*"]
-
-        def mid1():
-            global messages
-            messages = ["*squeeze* >:3", "*huggggg*", "*holdddd*"]
-
-        def mid2():
-            global messages
-            messages = ["hug1.png", "hug2.png", "hug3.gif"]
-
-        def mid3():
-            global messages
-            messages = ["*snuggles*", "*nuzzles*", "*gently hugs*"]
-
-        def end1():
-            global messages
-            messages = ["*lets go*", f"*drops the {name}*", f"*releases the {name}*"]
-
-        def end2():
-            global messages
-            messages = ["*lets go*", f"*drops the {name}*", f"*releases the {name}*"]
-
-        def end3():
-            global messages
-            messages = ["*puts down*", f"*sets the {name} down*", f"*places the {name} down*"]
-
-
-
-
 
 
         #the bot will start acting and talking
@@ -279,9 +196,13 @@ async def on_message(message):
 
 
 
-        start = [start1, start2, start3]
-        slot = rand.randint(0,2)
-        start[slot]()
+
+        if slot == 0:
+            messages = [f"*grabs the {name}*", f"*grabs {name}*", "*grabs*"]
+        elif slot == 1:
+            messages = [f"c'mere, {name}", f"The {name}", "you"]
+        else:
+            messages = [f"*Holds the {name}*", f"*Picks up the {name}*", "*Picks up*"]
 
         if (namesaid == True):
             await asyncio.sleep(2)
@@ -292,8 +213,12 @@ async def on_message(message):
             await channel.send(":3")
 
         #uses middle definitions, grab da boi
-        mid = [mid1, mid2, mid3]
-        mid[slot]()
+        if slot == 0:
+            messages = ["*squeeze* >:3", "*huggggg*", "*holdddd*"]
+        elif slot == 1:
+            messages = ["hug1.png", "hug2.png", "hug3.gif"]
+        else:
+            messages = ["*snuggles*", "*nuzzles*", "*gently hugs*"]
 
         await asyncio.sleep(1)
         if (slot == 1):
@@ -304,8 +229,12 @@ async def on_message(message):
             await channel.send(f'{messages[rand.randint(0,2)]}')
 
         #uses end definitions, lets the boi go
-        end = [end1, end2, end3]
-        end[slot]()
+        if slot == 0:
+            messages = ["*lets go*", f"*drops the {name}*", f"*releases the {name}*"]
+        elif slot == 1:
+            messages = ["*lets go*", f"*drops the {name}*", f"*releases the {name}*"]
+        else:
+            messages = ["*puts down*", f"*sets the {name} down*", f"*places the {name} down*"]
 
         await asyncio.sleep(rand.randint(4,6))
         await channel.send(f'{messages[rand.randint(0,2)]}')
